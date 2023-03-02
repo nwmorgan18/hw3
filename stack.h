@@ -6,7 +6,7 @@
 
 // Use inheritance from std::vector (choose public/private) as appropriate
 template <typename T>
-class Stack 
+class Stack : private std::vector<T>
 {
 public:
     Stack();
@@ -19,5 +19,51 @@ public:
     // Add other members only if necessary
 };
 
+template <typename T>
+Stack<T>::Stack()
+{
+   
+}
+
+template<typename T>
+Stack<T>::~Stack()
+{
+    
+}
+
+template <typename T>
+size_t Stack<T>::size() const {
+  return this->std::vector<T>::size();
+}
+
+template <typename T>
+bool Stack<T>::empty() const {
+  return this->std::vector<T>::size() == 0;
+}
+
+template<typename T>
+void Stack<T>::push(const T& item){
+  this->std::vector<T>::push_back(item);
+}
+
+template<typename T>
+void Stack<T>::pop(){
+  if(!this->empty()){
+    this->std::vector<T>::pop_back();
+  }
+  else{
+    throw std::underflow_error("No elements in stack.");
+  }
+}
+
+template<typename T>
+const T& Stack<T>::top() const {
+  if(!this->empty()){
+    return this->std::vector<T>::back();
+  }
+  else{
+    throw std::underflow_error("No elements in stack.");
+  }
+}
 
 #endif

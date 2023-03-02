@@ -70,7 +70,6 @@ void dealloc(Node* head)
 
 
 
-
 int main(int argc, char* argv[])
 {
     if(argc < 2) {
@@ -86,6 +85,16 @@ int main(int argc, char* argv[])
     print(head);
 
     // Test out your linked list code
+
+    Node* sml = NULL;
+    Node* lrg = NULL;
+
+    llpivot(head, sml, lrg, 10);
+    print(sml);
+    print(lrg);
+
+    
+
 
 
 
